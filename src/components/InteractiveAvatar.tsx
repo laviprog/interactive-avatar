@@ -121,11 +121,7 @@ export default function InteractiveAvatar() {
             <div className="flex-2 w-full h-full">
               <AvatarSession ref={mediaStream} />
             </div>
-            <Chat
-              className="flex-1"
-              handleMessage={handleMessage}
-              language={config.language}
-            />
+            <Chat className="flex-1" handleMessage={handleMessage} language={config.language} />
           </div>
         </div>
       ) : (

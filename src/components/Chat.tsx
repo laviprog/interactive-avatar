@@ -18,7 +18,7 @@ interface ChatProps {
 export default function Chat({ className, handleMessage, language }: ChatProps) {
   const { messages } = useMessageHistory();
 
-  const {waiting} = useInteractiveAvatarSession();
+  const { waiting } = useInteractiveAvatarSession();
 
   const [message, setMessage] = useState('');
 

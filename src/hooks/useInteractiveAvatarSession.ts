@@ -14,7 +14,7 @@ export const useInteractiveAvatarSession = () => {
     clearMessages,
     handleEndMessage,
     handleStreamingTalkingMessage,
-    handleUserMessage
+    handleUserMessage,
   } = useInteractiveAvatarContext();
 
   const [waiting, setWaiting] = useState(false);
@@ -94,12 +94,11 @@ export const useInteractiveAvatarSession = () => {
       avatarRef.current.on(StreamingEvents.AVATAR_TALKING_MESSAGE, handleStreamingTalkingMessage);
       avatarRef.current.on(StreamingEvents.AVATAR_END_MESSAGE, handleEndMessage);
 
-      avatarRef.current.createStartAvatar(config)
-        .catch((e) => {
+      avatarRef.current.createStartAvatar(config).catch((e) => {
         setSessionState(AvatarSessionState.INACTIVE);
         toast.error('К сожалению, не удалось подключиться!');
         console.error(e);
-      })
+      });
 
       return avatarRef.current;
     },

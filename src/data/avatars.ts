@@ -41,6 +41,4 @@ export const LANGUAGE_LIST = [
 export const KNOWLEDGES = [
   { key: '1', value: undefined, label: 'Без базы знаний' },
   { key: '2', value: '24f2dcf7140642d2995913335c72b343', label: 'ПСБ' },
-]
-
-
+];

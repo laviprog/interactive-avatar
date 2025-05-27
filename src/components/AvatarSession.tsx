@@ -1,15 +1,15 @@
-import {forwardRef} from 'react';
+import { forwardRef } from 'react';
 import Button from '@/components/Button';
 import { AvatarSessionState } from '@/logic/context';
 import { useInterrupt } from '@/hooks/useInterrupt';
-import {useInteractiveAvatarSession} from "@/hooks/useInteractiveAvatarSession";
+import { useInteractiveAvatarSession } from '@/hooks/useInteractiveAvatarSession';
 
 export const AvatarSession = forwardRef<HTMLVideoElement>(({}, ref) => {
   const { sessionState, stopAvatar } = useInteractiveAvatarSession();
   const { interrupt } = useInterrupt();
 
   return (
-    <div className='bg-[var(--dark)] rounded-xl flex flex-col justify-around w-full h-full'>
+    <div className="bg-[var(--dark)] rounded-xl flex flex-col justify-around w-full h-full">
       <div className="m-4 rounded-lg relative aspect-[4/3] overflow-hidden bg-[var(--black)]">
         {sessionState === AvatarSessionState.CONNECTED ? (
           <video
@@ -37,8 +37,6 @@ export const AvatarSession = forwardRef<HTMLVideoElement>(({}, ref) => {
       </div>
     </div>
   );
-
-  }
-)
+});
 
 AvatarSession.displayName = 'AvatarSession';

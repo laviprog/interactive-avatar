@@ -1,9 +1,9 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
 import { useInteractiveAvatarSession } from './useInteractiveAvatarSession';
 
 export const useInterrupt = () => {
-  const { avatarRef } = useInteractiveAvatarSession()
+  const { avatarRef } = useInteractiveAvatarSession();
 
   const interrupt = useCallback(() => {
     if (!avatarRef.current) return;

@@ -76,8 +76,8 @@ const useStreamingAvatarMessageState = () => {
   const [waiting, setWaiting] = useState(false);
 
   const handleUserMessage = (message: Message) => {
-    setMessages(prevMessages => [...prevMessages, message]);
-  }
+    setMessages((prevMessages) => [...prevMessages, message]);
+  };
 
   const handleStreamingTalkingMessage = ({ detail }: { detail: StreamingTalkingMessageEvent }) => {
     if (currentSenderRef.current === MessageSender.AVATAR) {
