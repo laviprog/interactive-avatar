@@ -1,0 +1,11 @@
+services:
+  streaming-avatar:
+    container_name: interactive-avatar
+    build:
+      context: .
+      target: runner
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.production
+    restart: unless-stopped
