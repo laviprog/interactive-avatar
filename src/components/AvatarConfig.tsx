@@ -1,4 +1,4 @@
-import { AvatarQuality, StartAvatarRequest } from '@heygen/streaming-avatar';
+import { AvatarQuality, ElevenLabsModel, StartAvatarRequest } from '@heygen/streaming-avatar';
 import { AVATARS, KNOWLEDGES, LANGUAGE_LIST, QUALITIES } from '@/data/avatars';
 import Button from '@/components/Button';
 
@@ -103,6 +103,31 @@ export default function AvatarConfig({ config, onConfigChange, startSession }: A
             ))}
           </select>
         </div>
+
+        {/* TTS Model Select */}
+        <div>
+          <label htmlFor="quality-select" className="block mb-1 text-sm font-medium text-white">
+            Модель озвучки
+          </label>
+          <select
+            id="quality-select"
+            className="bg-[var(--black)] text-[var(--white)] px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white w-full"
+            value={config.voice?.model}
+            onChange={
+            (e) => onChange("voice", { ...config.voice, model: e.target.value as ElevenLabsModel })
+          }
+          >
+            <option disabled value="">
+              Выберите модель
+            </option>
+            {Object.values(ElevenLabsModel).map((model) => (
+              <option key={model} value={model}>
+                {model}
+              </option>
+            ))}
+          </select>
+        </div>
+
       </div>
 
       <div className="flex justify-center">
