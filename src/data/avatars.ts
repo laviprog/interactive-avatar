@@ -6,6 +6,10 @@ export const AVATARS = [
     name: 'Валерия',
   },
   {
+    avatar_id: 'b2aa134b1f354f11890e7af4d2188a8f',
+    name: 'Валерия (ПСБ)',
+  },
+  {
     avatar_id: 'Dexter_Doctor_Standing2_public',
     name: 'Dexter Doctor Standing',
   },
