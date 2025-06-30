@@ -2,6 +2,8 @@
 
 **Interactive Avatar** is a simple Next.js application that allows real-time interaction with an AI-powered avatar via chat or speech. The avatar is rendered and streamed using the [HeyGen API](https://www.heygen.com/), offering a responsive and engaging user experience.
 
+![Interactive Avatar Screenshot](assets/example.jpeg)
+
 ## Features
 
 - 🎤 **Real-time Voice Interaction** — Talk to the avatar and receive spoken responses.
