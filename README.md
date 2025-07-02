@@ -24,7 +24,7 @@
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/interactive-avatar.git
+    git clone https://github.com/laviprog/interactive-avatar.git
     cd interactive-avatar
     ```
 
