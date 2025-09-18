@@ -20,7 +20,7 @@ import AvatarConfig from '@/components/AvatarConfig';
 import { AvatarSession } from '@/components/AvatarSession';
 
 const DEFAULT_CONFIG: StartAvatarRequest = {
-  quality: AvatarQuality.Low,
+  quality: AvatarQuality.High,
   avatarName: AVATARS[0].avatar_id,
   knowledgeId: undefined,
   voice: {
@@ -117,8 +117,8 @@ export default function InteractiveAvatar() {
     <div className="flex items-center w-full h-full">
       {sessionState !== AvatarSessionState.INACTIVE ? (
         <div className="flex justify-center items-center w-full h-full">
-          <div className="flex w-full gap-5 m-5 2xl:h-220 xl:h-200 lg:h-170 h-100">
-            <div className="relative flex-2 w-full h-full">
+          <div className="flex w-full gap-5 m-5 h-full">
+            <div className="w-full h-full flex justify-center items-center">
               <AvatarSession ref={mediaStream} handleMessage={handleMessage} language={config.language} />
             </div>
             {/*<Chat className="flex-1" handleMessage={handleMessage} language={config.language} />*/}

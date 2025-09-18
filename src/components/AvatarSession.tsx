@@ -11,8 +11,8 @@ export const AvatarSession = forwardRef<HTMLVideoElement, ChatProps>(
     const { interrupt } = useInterrupt();
 
     return (
-      <div className="bg-[var(--dark)] rounded-xl flex flex-col justify-around w-full h-full">
-        <div className="m-4 rounded-lg relative aspect-[4/3] overflow-hidden bg-[var(--black)]">
+      <div className="bg-[var(--dark)] rounded-xl flex flex-col justify-center w-full max-w-[1400px] max-h-[824px]">
+        <div className="m-4 rounded-lg relative aspect-[16/9] overflow-hidden bg-[var(--black)]">
           {sessionState === AvatarSessionState.CONNECTED ? (
             <video
               ref={ref}
