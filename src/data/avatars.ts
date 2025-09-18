@@ -3,7 +3,7 @@ import { AvatarQuality } from '@heygen/streaming-avatar';
 export const AVATARS = [
   {
     avatar_id: '02ff8a0894e044f09b2f6505e6db8108',
-    name: 'Иван Белов',
+    name: 'Иван Беров',
   },
   {
     avatar_id: '57bdc431d0754ac9a4f9c5ea3234dee4',
@@ -40,9 +40,9 @@ export const AVATARS = [
 ];
 
 export const QUALITIES = [
-  { key: AvatarQuality.Low, label: 'Низкое' },
-  { key: AvatarQuality.Medium, label: 'Среднее' },
   { key: AvatarQuality.High, label: 'Высокое' },
+  { key: AvatarQuality.Medium, label: 'Среднее' },
+  { key: AvatarQuality.Low, label: 'Низкое' },
 ];
 
 export const LANGUAGE_LIST = [
