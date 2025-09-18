@@ -1,5 +1,5 @@
 import { AvatarQuality, ElevenLabsModel, StartAvatarRequest } from '@heygen/streaming-avatar';
-import { AVATARS, KNOWLEDGES, LANGUAGE_LIST, QUALITIES } from '@/data/avatars';
+import { AVATARS, KNOWLEDGE, LANGUAGE_LIST, QUALITIES } from '@/data/avatars';
 import Button from '@/components/Button';
 
 interface AvatarConfigProps {
@@ -52,7 +52,7 @@ export default function AvatarConfig({ config, onConfigChange, startSession }: A
             <option disabled value="">
               Выберите базу знаний
             </option>
-            {KNOWLEDGES.map((knowledge) => (
+            {KNOWLEDGE.map((knowledge) => (
               <option key={knowledge.key} value={knowledge.value}>
                 {knowledge.label}
               </option>

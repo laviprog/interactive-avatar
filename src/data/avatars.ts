@@ -2,8 +2,16 @@ import { AvatarQuality } from '@heygen/streaming-avatar';
 
 export const AVATARS = [
   {
+    avatar_id: '02ff8a0894e044f09b2f6505e6db8108',
+    name: 'Иван Белов',
+  },
+  {
     avatar_id: '57bdc431d0754ac9a4f9c5ea3234dee4',
     name: 'Валерия',
+  },
+  {
+    avatar_id: 'fbfa00dd13d64e798fbf60a383856252',
+    name: 'Валерия (СМ)',
   },
   {
     avatar_id: 'b2aa134b1f354f11890e7af4d2188a8f',
@@ -46,7 +54,9 @@ export const LANGUAGE_LIST = [
   { label: 'French', value: 'fr', key: 'fr' },
 ];
 
-export const KNOWLEDGES = [
+export const KNOWLEDGE = [
   { key: '1', value: undefined, label: 'Без базы знаний' },
-  { key: '2', value: '24f2dcf7140642d2995913335c72b343', label: 'ПСБ' },
+  { key: '2', value: 'f2fbd3bc5bfb4825abb0a21c23f785f4', label: 'СМ'},
+  { key: '3', value: '24f2dcf7140642d2995913335c72b343', label: 'ПСБ' },
+  { key: '4', value: 'caf755dd70604587940481eda9502bf2', label: 'РТК' },
 ];
