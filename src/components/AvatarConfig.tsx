@@ -113,9 +113,9 @@ export default function AvatarConfig({ config, onConfigChange, startSession }: A
             id="quality-select"
             className="bg-[var(--black)] text-[var(--white)] px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white w-full"
             value={config.voice?.model}
-            onChange={
-            (e) => onChange("voice", { ...config.voice, model: e.target.value as ElevenLabsModel })
-          }
+            onChange={(e) =>
+              onChange('voice', { ...config.voice, model: e.target.value as ElevenLabsModel })
+            }
           >
             <option disabled value="">
               Выберите модель
@@ -127,7 +127,6 @@ export default function AvatarConfig({ config, onConfigChange, startSession }: A
             ))}
           </select>
         </div>
-
       </div>
 
       <div className="flex justify-center">

@@ -150,5 +150,5 @@ export default function Chat({ className, handleMessage, language, withChat = fa
         <SendHorizontal />
       </Button>
     </div>
-  )
+  );
 }

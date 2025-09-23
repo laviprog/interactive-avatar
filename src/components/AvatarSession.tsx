@@ -30,13 +30,13 @@ export const AvatarSession = forwardRef<HTMLVideoElement, ChatProps>(
         </div>
 
         <div className="flex w-full justify-center gap-5">
-          <div className='flex items-center justify-center gap-5 font-medium'>
-          <Button className="px-7 py-3" onClick={stopAvatar}>
-            Завершить сессию
-          </Button>
-          <Button className="px-7 py-3" onClick={interrupt}>
-            Прервать аватара
-          </Button>
+          <div className="flex items-center justify-center gap-5 font-medium">
+            <Button className="px-7 py-3" onClick={stopAvatar}>
+              Завершить сессию
+            </Button>
+            <Button className="px-7 py-3" onClick={interrupt}>
+              Прервать аватара
+            </Button>
           </div>
           <Chat handleMessage={handleMessage} language={language} />
         </div>
