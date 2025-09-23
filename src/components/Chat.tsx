@@ -68,7 +68,7 @@ export default function Chat({ className, handleMessage, language, withChat = fa
 
   if (withChat)
     return (
-      <div className={clsx('bg-[var(--dark)] rounded-xl flex flex-col h-full', className)}>
+      <div className={clsx('bg-[var(--dark)] rounded-xl flex flex-col h-full max-w-2xl', className)}>
         <div className="overflow-y-auto bg-[var(--black)] m-5 mb-0 rounded-xl h-full">
           <div className="flex flex-col gap-2 h-full px-3 py-2">
             {messages.map((message, index) => (

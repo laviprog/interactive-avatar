@@ -6,9 +6,17 @@ interface AvatarConfigProps {
   onConfigChange: (config: StartAvatarRequest) => void;
   config: StartAvatarRequest;
   startSession: () => void;
+  setChatVisible: (visible: boolean) => void;
+  chatVisible: boolean;
 }
 
-export default function AvatarConfig({ config, onConfigChange, startSession }: AvatarConfigProps) {
+export default function AvatarConfig({
+  config,
+  onConfigChange,
+  startSession,
+  setChatVisible,
+  chatVisible,
+}: AvatarConfigProps) {
   const onChange = <T extends keyof StartAvatarRequest>(key: T, value: StartAvatarRequest[T]) => {
     onConfigChange({ ...config, [key]: value });
   };
@@ -113,9 +121,9 @@ export default function AvatarConfig({ config, onConfigChange, startSession }: A
             id="quality-select"
             className="bg-[var(--black)] text-[var(--white)] px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white w-full"
             value={config.voice?.model}
-            onChange={(e) =>
-              onChange('voice', { ...config.voice, model: e.target.value as ElevenLabsModel })
-            }
+            onChange={
+            (e) => onChange("voice", { ...config.voice, model: e.target.value as ElevenLabsModel })
+          }
           >
             <option disabled value="">
               Выберите модель
@@ -127,6 +135,31 @@ export default function AvatarConfig({ config, onConfigChange, startSession }: A
             ))}
           </select>
         </div>
+
+        <div>
+          <label htmlFor="quality-select" className="block mb-1 text-sm font-medium text-white">
+            Нужен чат?
+          </label>
+          <select
+            id="quality-select"
+            className="bg-[var(--black)] text-[var(--white)] px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white w-full"
+            value={chatVisible ? 'Да' : 'Нет'}
+            onChange={(e) => {
+              setChatVisible(e.target.value === 'Да');
+            }}
+          >
+            <option disabled value="">
+              Выберите вариант
+            </option>
+            <option key={'Да'} value={'Да'}>
+              Да
+            </option>
+            <option key={'Нет'} value={'Нет'}>
+              Нет
+            </option>
+          </select>
+        </div>
+
       </div>
 
       <div className="flex justify-center">

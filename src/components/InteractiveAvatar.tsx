@@ -15,7 +15,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { getTranscriberToken } from '@/lib/api/transcribe/auth';
 import { fetchToken } from '@/lib/api/heygen/auth';
 import { AvatarSessionState, Message } from '@/logic/context';
-// import Chat from '@/components/Chat';
+import Chat from '@/components/Chat';
 import AvatarConfig from '@/components/AvatarConfig';
 import { AvatarSession } from '@/components/AvatarSession';
 
@@ -43,6 +43,7 @@ export default function InteractiveAvatar() {
   } = useInteractiveAvatarSession();
 
   const [config, setConfig] = useState<StartAvatarRequest>(DEFAULT_CONFIG);
+  const [chatVisible, setChatVisible] = useState(false);
 
   const mediaStream = useRef<HTMLVideoElement>(null);
 
@@ -55,7 +56,7 @@ export default function InteractiveAvatar() {
         taskMode: TaskMode.SYNC,
       });
     },
-    [avatarRef]
+    [avatarRef],
   );
 
   function handleMessage(message: Message) {
@@ -113,24 +114,50 @@ export default function InteractiveAvatar() {
     }
   }, [mediaStream, stream]);
 
+  if (chatVisible) {
+    return (
+      <div className="flex items-center w-full h-full">
+        {sessionState !== AvatarSessionState.INACTIVE ? (
+          <div className="flex justify-center items-center w-full h-full">
+            <div className="flex w-full gap-5 m-5 2xl:h-220 xl:h-200 lg:h-170 h-100">
+              <div className="flex-2 w-full h-full">
+                <AvatarSession
+                  ref={mediaStream}
+                  handleMessage={handleMessage}
+                  language={config.language}
+                  chatVisible={chatVisible}
+                />
+              </div>
+              <Chat className="flex-1" handleMessage={handleMessage} language={config.language} withChat={true} />
+            </div>
+          </div>
+        ) : (
+          <div className="flex w-full justify-center">
+            <AvatarConfig config={config} onConfigChange={setConfig} setChatVisible={setChatVisible} chatVisible={chatVisible} startSession={startSession} />
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
-    <div className="flex items-center w-full h-full">
+    <div className='flex items-center w-full h-full'>
       {sessionState !== AvatarSessionState.INACTIVE ? (
-        <div className="flex justify-center items-center w-full h-full">
-          <div className="flex w-full gap-5 m-5 h-full">
-            <div className="w-full h-full flex justify-center items-center">
+        <div className='flex justify-center items-center w-full h-full'>
+          <div className='flex w-full gap-5 m-5 h-full'>
+            <div className='w-full h-full flex justify-center items-center'>
               <AvatarSession
                 ref={mediaStream}
                 handleMessage={handleMessage}
                 language={config.language}
+                chatVisible={chatVisible}
               />
             </div>
-            {/*<Chat className="flex-1" handleMessage={handleMessage} language={config.language} />*/}
           </div>
         </div>
       ) : (
-        <div className="flex w-full justify-center">
-          <AvatarConfig config={config} onConfigChange={setConfig} startSession={startSession} />
+        <div className='flex w-full justify-center'>
+          <AvatarConfig config={config} onConfigChange={setConfig} setChatVisible={setChatVisible} chatVisible={chatVisible} startSession={startSession} />
         </div>
       )}
     </div>
