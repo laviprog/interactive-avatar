@@ -57,14 +57,16 @@
    ```
 
 4. Run the app locally:
-   `bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    `
-   Open http://localhost:3000 to view it in the browser.
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
+    
+Open http://localhost:3000 to view it in the browser.
 
 ## Running with Docker
 
