@@ -9,7 +9,11 @@ export async function transcribe(file: File): Promise<string> {
   formData.append('audio_preprocessing', 'false');
 
   try {
-    const res = await api.post('/transcription/transcribe', formData);
+    const res = await api.post('/transcription/transcribe', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
 
     return res.data?.text;
   } catch (error) {

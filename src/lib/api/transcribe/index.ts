@@ -4,6 +4,9 @@ import { getTranscriberToken } from '@/lib/api/transcribe/auth';
 
 const api = axios.create({
   baseURL: baseApiUrlTranscribe(),
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 api.interceptors.request.use(
