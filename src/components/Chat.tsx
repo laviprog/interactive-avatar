@@ -12,11 +12,10 @@ import { useInteractiveAvatarSession } from '@/hooks/useInteractiveAvatarSession
 export interface ChatProps {
   className?: string;
   handleMessage: (message: Message) => void;
-  language: string | undefined;
   withChat?: boolean;
 }
 
-export default function Chat({ className, handleMessage, language, withChat = false }: ChatProps) {
+export default function Chat({ className, handleMessage, withChat = false }: ChatProps) {
   const { messages } = useMessageHistory();
 
   const { waiting } = useInteractiveAvatarSession();
@@ -29,7 +28,7 @@ export default function Chat({ className, handleMessage, language, withChat = fa
   const onRecordingCompleteAction = (audioBlob: Blob) => {
     setIsTranscribing(true);
     const audioFile = new File([audioBlob], 'recording.wav', { type: 'audio/wav' });
-    transcribe(audioFile, language)
+    transcribe(audioFile)
       .then((result) => {
         if (result === '') {
           toast.error('Не получилось распознать');

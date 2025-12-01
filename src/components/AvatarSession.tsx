@@ -8,7 +8,7 @@ import Chat, { ChatProps } from '@/components/Chat';
 type AvatarSessionProps = ChatProps & { chatVisible: boolean };
 
 export const AvatarSession = forwardRef<HTMLVideoElement, AvatarSessionProps>(
-  ({ handleMessage, language, chatVisible }, ref) => {
+  ({ handleMessage, chatVisible }, ref) => {
     const { sessionState, stopAvatar } = useInteractiveAvatarSession();
     const { interrupt } = useInterrupt();
 
@@ -72,7 +72,7 @@ export const AvatarSession = forwardRef<HTMLVideoElement, AvatarSessionProps>(
               Прервать аватара
             </Button>
           </div>
-          {!chatVisible && <Chat handleMessage={handleMessage} language={language} />}
+          {!chatVisible && <Chat handleMessage={handleMessage} />}
         </div>
       </div>
     );

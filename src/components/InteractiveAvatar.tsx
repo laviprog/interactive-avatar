@@ -56,7 +56,7 @@ export default function InteractiveAvatar() {
         taskMode: TaskMode.SYNC,
       });
     },
-    [avatarRef],
+    [avatarRef]
   );
 
   function handleMessage(message: Message) {
@@ -124,16 +124,21 @@ export default function InteractiveAvatar() {
                 <AvatarSession
                   ref={mediaStream}
                   handleMessage={handleMessage}
-                  language={config.language}
                   chatVisible={chatVisible}
                 />
               </div>
-              <Chat className="flex-1" handleMessage={handleMessage} language={config.language} withChat={true} />
+              <Chat className="flex-1" handleMessage={handleMessage} withChat={true} />
             </div>
           </div>
         ) : (
           <div className="flex w-full justify-center">
-            <AvatarConfig config={config} onConfigChange={setConfig} setChatVisible={setChatVisible} chatVisible={chatVisible} startSession={startSession} />
+            <AvatarConfig
+              config={config}
+              onConfigChange={setConfig}
+              setChatVisible={setChatVisible}
+              chatVisible={chatVisible}
+              startSession={startSession}
+            />
           </div>
         )}
       </div>
@@ -141,23 +146,28 @@ export default function InteractiveAvatar() {
   }
 
   return (
-    <div className='flex items-center w-full h-full'>
+    <div className="flex items-center w-full h-full">
       {sessionState !== AvatarSessionState.INACTIVE ? (
-        <div className='flex justify-center items-center w-full h-full'>
-          <div className='flex w-full gap-5 m-5 h-full'>
-            <div className='w-full h-full flex justify-center items-center'>
+        <div className="flex justify-center items-center w-full h-full">
+          <div className="flex w-full gap-5 m-5 h-full">
+            <div className="w-full h-full flex justify-center items-center">
               <AvatarSession
                 ref={mediaStream}
                 handleMessage={handleMessage}
-                language={config.language}
                 chatVisible={chatVisible}
               />
             </div>
           </div>
         </div>
       ) : (
-        <div className='flex w-full justify-center'>
-          <AvatarConfig config={config} onConfigChange={setConfig} setChatVisible={setChatVisible} chatVisible={chatVisible} startSession={startSession} />
+        <div className="flex w-full justify-center">
+          <AvatarConfig
+            config={config}
+            onConfigChange={setConfig}
+            setChatVisible={setChatVisible}
+            chatVisible={chatVisible}
+            startSession={startSession}
+          />
         </div>
       )}
     </div>

@@ -1,18 +1,15 @@
 import api from '@/lib/api/transcribe';
 
-export async function transcribe(file: File, language: string | undefined): Promise<string> {
+export async function transcribe(file: File): Promise<string> {
   const formData = new FormData();
   formData.append('file', file);
+  formData.append('model', 'small');
+  formData.append('result_format', 'text');
+  formData.append('align_mode', 'false');
+  formData.append('audio_preprocessing', 'false');
 
   try {
-    const res = await api.post('/transcription/transcribe', formData, {
-      params: {
-        language: language,
-      },
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    });
+    const res = await api.post('/transcription/transcribe', formData);
 
     return res.data?.text;
   } catch (error) {

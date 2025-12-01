@@ -4,14 +4,11 @@ import { getTranscriberToken } from '@/lib/api/transcribe/auth';
 
 const api = axios.create({
   baseURL: baseApiUrlTranscribe(),
-  headers: {
-    'Content-Type': 'application/json',
-  },
 });
 
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token-transcribe');
+    const token = localStorage.getItem('stt-service-token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -32,7 +29,7 @@ api.interceptors.response.use(
 
       const newToken = await getTranscriberToken();
       if (newToken) {
-        localStorage.setItem('token-transcribe', newToken);
+        localStorage.setItem('stt-service-token', newToken);
         originalRequest.headers.Authorization = `Bearer ${newToken}`;
         return api(originalRequest);
       }

@@ -9,7 +9,7 @@ export async function getTranscriberToken(): Promise<string | null> {
     const response = await api.post(url, data);
     const token = response.data?.access_token;
     if (token) {
-      saveToken('token-transcriber', token);
+      saveToken('stt-service-token', token);
       return token;
     }
     console.warn('No token in response:', response.data);
